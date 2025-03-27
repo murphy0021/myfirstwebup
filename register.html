@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #d9eaf7, #f0f0f0);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            width: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        form input, form textarea, form select, form button {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        form input:focus, form textarea:focus, form select:focus {
+            border-color: #87ceeb;
+            outline: none;
+        }
+        form button {
+            background: #87ceeb;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        form button:hover {
+            background: #4682b4;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #4682b4;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .inline {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .inline input {
+            margin-right: 10px;
+            width: auto;
+        }
+    </style>
+    <script>
+        // List of countries
+        const countries = [
+            "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia",
+            "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium",
+            "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria",
+            "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad",
+            "Chile", "China", "Colombia", "Comoros", "Congo (Congo-Brazzaville)", "Costa Rica", "Croatia", "Cuba", "Cyprus",
+            "Czechia (Czech Republic)", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt",
+            "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini (fmr. Swaziland)", "Ethiopia", "Fiji",
+            "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala",
+            "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Holy See", "Honduras", "Hungary", "Iceland", "India", "Indonesia",
+            "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati",
+            "Korea (North)", "Korea (South)", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho",
+            "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives",
+            "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco",
+            "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar (formerly Burma)", "Namibia", "Nauru", "Nepal",
+            "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan",
+            "Palau", "Palestine State", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland",
+            "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia",
+            "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal",
+            "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia",
+            "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
+            "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia",
+            "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom",
+            "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia",
+            "Zimbabwe"
+        ];
+
+        // Populate the country dropdown
+        window.onload = function() {
+            const select = document.querySelector("select");
+            countries.forEach(country => {
+                const option = document.createElement("option");
+                option.textContent = country;
+                option.value = country;
+                select.appendChild(option);
+            });
+        };
+    </script>
+</head>
+<body>
+    <form onsubmit="validateForm(event)">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <input type="tel" placeholder="Phone" required>
+        <input type="date" required>
+        <input type="number" placeholder="Age" required>
+        <div class="inline">
+            <input type="checkbox"> <label>Subscribe to Newsletter</label>
+        </div>
+        <div class="inline">
+            <input type="radio" name="gender"> <label>Male</label>
+            <input type="radio" name="gender"> <label>Female</label>
+        </div>
+        <input type="file">
+        <textarea placeholder="Bio"></textarea>
+        <select required>
+            <option value="">Country</option>
+        </select>
+        <button type="submit">Register</button>
+    </form>
+    <a href="index.html">Back to Profile</a>
+</body>
+</html>
